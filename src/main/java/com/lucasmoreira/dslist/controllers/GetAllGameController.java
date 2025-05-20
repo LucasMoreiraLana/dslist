@@ -2,8 +2,7 @@ package com.lucasmoreira.dslist.controllers;
 
 
 import com.lucasmoreira.dslist.dto.GameMinDTO;
-import com.lucasmoreira.dslist.entities.Game;
-import com.lucasmoreira.dslist.servicies.GameService;
+import com.lucasmoreira.dslist.servicies.GameFindAllService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/games")
-public class GameController {
+public class GetAllGameController {
 
     @Autowired
-    private GameService gameService;
+    private GameFindAllService gameFindAllService;
 
     @GetMapping
     public List<GameMinDTO> findAll(){
-        List<GameMinDTO> result = gameService.findAll();
+        List<GameMinDTO> result = gameFindAllService.findAll();
         return result;
     }
 }
